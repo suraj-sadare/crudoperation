@@ -1,10 +1,13 @@
-const mongoose =require("mongoose");
- mongoose.connect("mongodb+srv://user1:j9ZUoS8yPMl8icmK@cluster0.7b5mv.mongodb.net/articales?retryWrites=true&w=majority",{
- useCreateIndex:true,
- useNewUrlParser:true,
- useUnifiedTopology:true
- }).then(()=>{
-    console.log("connection is established");
- }).catch((e)=>{
-    console.log("no connection");
- });
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
+console.log(process.env.MONGODB_URL);
+mongoose.connect(process.env.MONGODB_URL, {
+   useCreateIndex: true,
+   useNewUrlParser: true,
+   useUnifiedTopology: true
+}).then(() => {
+   console.log("connection is established");
+}).catch((e) => {
+   console.log("no connection ");
+});
