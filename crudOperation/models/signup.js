@@ -1,0 +1,17 @@
+const mongoose = require("mongoose");
+const validator = require("validator");
+const userSchema= new mongoose.Schema({
+    // _id: mongoose.Schema.Types.ObjectId, 
+    email: {
+        type: String,
+        required: true,
+        unique:true
+    },
+    password: {
+        type: String,
+        required: true
+    }
+});
+
+const userSignup= new mongoose.model('Mongodb', userSchema);
+module.exports = userSignup;
