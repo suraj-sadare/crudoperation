@@ -1,0 +1,28 @@
+const express=require("express");
+const app=express();
+app.use(express.json());
+require("./db/connection");
+const artiCollection=require("./models/articales")
+const port=process.env.PORT || 3000;
+app.post("/articales",(req,res)=>{
+    console.log(req.body);
+    const user=new artiCollection(req.body);
+    user.save().then(()=>{
+        res.status(201).send(user);
+    }).catch((e)=>{
+        res.status(400).send(e)
+    })
+
+});
+app.get("/articales", async(req,res)=>{
+    try{
+    const user= await artiCollection.find()
+   res.json(user);
+    }
+    catch(err){
+        res.status(400).send(err);
+    }
+
+});
+
+app.listen(port,()=>console.log(`sending to port ${port}`));
