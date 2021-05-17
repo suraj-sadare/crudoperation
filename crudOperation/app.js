@@ -18,4 +18,4 @@ app.delete("/deleteArti/:id", deletePost);
 app.post("/signup", createUser);
 app.post("/login",loginUser);
 app.delete("/delete/:id", deleteUser);
-app.listen(port, () => console.log(`sending to port ${port}`));
+module.exports=app.listen(port, () => console.log(`sending to port ${port}`));
