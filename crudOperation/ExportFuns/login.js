@@ -26,13 +26,13 @@ exports.loginUser=(req,res)=>{
                 }
                 );
                 return res.status(200).json({
-                message:"Authentication failed successfull",
+                message:"Authentication successfull",
                 token:token
                 })
             }
             else{
                 res.status(401).json({
-                 mesaage:'Auth failed'
+                 mesaage:'Authentication failed'
                 })
             }  
         });
