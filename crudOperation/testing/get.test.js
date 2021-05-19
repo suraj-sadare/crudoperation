@@ -23,7 +23,7 @@ describe('Get Endpoints', () => {
 const id="60a0ed2f961e8e032ec6574c";
 test("Delete One Todo", async () => {
   const response = await request(app).delete(`/deleteArti/${id}`);
-  expect(response.status).toBe(200);
+  expect(response.status).toBe(208);
   expect(typeof response.body).toBe("object");
  });
  //here we need to assign id manually
@@ -33,7 +33,7 @@ const id="60a330db04daff12bc83ddfd";
           const res = await request(app)
               .patch(`/update/${id}`)
               .send({
-                  name: "bagaban",
+                  name: "bagaban123",
                   desc: 'story of mali',
                   author: "jivan"
               })
@@ -86,6 +86,12 @@ describe('Post Endpoints', () => {
           expect(res.body.message).toBe("mail exist");
   })
   })
+const id="60a0e45bdce98777b1aec8fa";
+test("Delete a user", async () => {
+  const response = await request(app).delete(`/delete/${id}`);
+  expect(response.status).toBe(208);
+  expect(typeof response.body).toBe("object");
+ });
 
 
   
